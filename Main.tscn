@@ -15,13 +15,38 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 48
 text = "0"
 
+[node name="ComboLabel" type="Label" parent="CanvasLayer"]
+offset_left = 430.0
+offset_top = 48.0
+offset_right = 600.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1.0, 0.85, 0.2, 1.0)
+text = ""
+
 [node name="BestLabel" type="Label" parent="CanvasLayer"]
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 150.0
 offset_right = 400.0
-offset_bottom = 140.0
+offset_bottom = 190.0
 theme_override_font_sizes/font_size = 24
 text = "Meilleur score : 0"
+
+[node name="LevelBanner" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -220.0
+offset_right = 200.0
+offset_bottom = -160.0
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.4, 0.85, 1.0, 1.0)
+horizontal_alignment = 1
+vertical_alignment = 1
+text = ""
 
 [node name="CenterLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
