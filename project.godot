@@ -10,22 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Nova Dodge"
-config/description="Esquivez les astéroïdes en orbite et battez votre record dans ce jeu d'arcade rapide."
+config/name="Naufrage"
+config/description="Un jeu de survie et de mystère sur une île isolée."
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/handheld/orientation="portrait"
+window/handheld/orientation="landscape"
 
 [rendering]
 
-renderer/rendering_method="mobile"
-renderer/rendering_method.mobile="mobile"
+renderer/rendering_method="forward_plus"
 textures/vram_compression/import_etc2_astc=true
