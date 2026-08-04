@@ -59,12 +59,15 @@ func build_environment() -> void:
 	env.sky = sky
 
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+	env.ambient_light_energy = 0.7
 	env.fog_enabled = true
-	env.fog_light_color = Color(0.7, 0.76, 0.82)
-	env.fog_density = 0.012
+	env.fog_light_color = Color(0.85, 0.82, 0.76)
+	env.fog_density = 0.0035
+	env.fog_aerial_perspective = 0.3
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.glow_enabled = true
-	env.glow_intensity = 0.35
+	env.glow_intensity = 0.15
+	env.glow_bloom = 0.0
 
 	world_env.environment = env
 	add_child(world_env)
@@ -82,9 +85,9 @@ func build_terrain() -> void:
 	ocean_mesh.size = Vector2(OCEAN_SIZE, OCEAN_SIZE)
 	ocean.mesh = ocean_mesh
 	var ocean_mat := StandardMaterial3D.new()
-	ocean_mat.albedo_color = Color(0.05, 0.25, 0.4)
-	ocean_mat.roughness = 0.08
-	ocean_mat.metallic = 0.2
+	ocean_mat.albedo_color = Color(0.02, 0.16, 0.3)
+	ocean_mat.roughness = 0.05
+	ocean_mat.metallic = 0.3
 	ocean.material_override = ocean_mat
 	ocean.position = Vector3(0, -0.6, 0)
 	add_child(ocean)
@@ -98,8 +101,8 @@ func build_terrain() -> void:
 	ground_mesh.radial_segments = 28
 	ground_mesh_instance.mesh = ground_mesh
 	var ground_mat := StandardMaterial3D.new()
-	ground_mat.albedo_color = Color(0.56, 0.5, 0.32)
-	ground_mat.roughness = 0.95
+	ground_mat.albedo_color = Color(0.78, 0.7, 0.44)
+	ground_mat.roughness = 0.9
 	ground_mesh_instance.material_override = ground_mat
 	ground_body.add_child(ground_mesh_instance)
 
@@ -320,7 +323,7 @@ func update_day_night(delta: float) -> void:
 	sun.rotation.x = (time_of_day - 0.25) * TAU
 
 	var brightness: float = clamp(sin(time_of_day * TAU), 0.05, 1.0)
-	sun.light_energy = lerp(0.15, 1.3, brightness)
+	sun.light_energy = lerp(0.35, 1.6, brightness)
 
 	var day_color := Color(1.0, 0.95, 0.85)
 	var night_color := Color(0.35, 0.45, 0.7)
